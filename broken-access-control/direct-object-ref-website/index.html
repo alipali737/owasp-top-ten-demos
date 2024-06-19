@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IDOR Demo</title>
+</head>
+<body style="height: 100vh; font-family: Arial, sans-serif;">
+    <h1>Welcome to the IDOR Demo</h1>
+    <div id="content">
+        <p>Please select a user to view their details:</p>
+        <ul>
+            <li><a href="#" onclick="getUserDetails(1)">User 1</a></li>
+            <li><a href="#" onclick="getUserDetails(2)">User 2</a></li>
+            <li><a href="#" onclick="getUserDetails(3)">User 3</a></li>
+        </ul>
+    </div>
+
+    <div id="user-details" style="display: none;">
+        <h2>User Details</h2>
+        <p id="details"></p>
+    </div>
+
+    <div style="background-color: orange; color: black; padding: 1%; border-radius: 10px; width: 35%; box-shadow: 0px 0px 10px lightgray;">
+        <details>
+            <summary>Exploit Walkthrough</summary>
+            <p>The <code>getUserDetails()</code> function used insecure direct object references and can be manipulated to display users that aren't listed in the links above. A logical guess would be that the first user <code>0</code> could be an administrator user, therefore executing <code>getUserDetails(0)</code> in the console might return a <i>hidden</i> user...</p>
+        </details>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
